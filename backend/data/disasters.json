@@ -1,0 +1,16 @@
+[
+    {
+        "id": "1b09b143-2b57-4755-8726-a4cef295b513",
+        "lat": 28.154045668095684,
+        "lon": 85.96226932956489,
+        "description": "User reported disaster",
+        "timestamp": "2026-05-24T20:03:07.202033Z"
+    },
+    {
+        "id": "5cb54f41-5f50-4373-9948-761a8b964b8c",
+        "lat": 27.914837277439414,
+        "lon": 85.88796177728562,
+        "description": "User reported disaster",
+        "timestamp": "2026-05-24T20:05:17.644259Z"
+    }
+]
