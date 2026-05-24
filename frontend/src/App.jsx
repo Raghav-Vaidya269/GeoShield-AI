@@ -56,11 +56,11 @@ const App = () => {
     }
   };
 
-  // Dynamic Color Logic
+  // Dynamic Color Logic — using production column names
   const getPointColor = (point) => {
     if (point.landslide_label === 1) return '#ef4444'; // Bright Red
     if (rainfall > 400) return '#f97316'; // Orange
-    if (rainfall > 350 && point.slope_deg > 30) return '#f97316';
+    if (rainfall > 350 && point.slope_epsg4326 > 30) return '#f97316';
     return '#22c55e'; // Bright Green
   };
 
@@ -153,13 +153,13 @@ const App = () => {
           
           <div className="grid grid-cols-2 gap-3">
             <div className="p-4 rounded-xl bg-slate-800/50 border border-slate-700/50">
-              <p className="text-[10px] text-slate-500 uppercase font-black">Monitored Pixels</p>
-              <p className="text-2xl font-mono font-bold text-slate-200">{stats?.summary?.total_points || 0}</p>
+              <p className="text-[10px] text-slate-500 uppercase font-black">Sampled Points</p>
+              <p className="text-2xl font-mono font-bold text-slate-200">{stats?.summary?.inventory_points_used?.toLocaleString() || 0}</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-800/50 border border-slate-700/50">
               <p className="text-[10px] text-slate-500 uppercase font-black">Mean Slope</p>
               <p className="text-2xl font-mono font-bold text-slate-200">
-                {stats?.environmental_averages?.slope_deg?.toFixed(1) || 0}°
+                {stats?.environmental_averages?.slope_epsg4326?.toFixed(1) || 0}°
               </p>
             </div>
           </div>
@@ -226,23 +226,28 @@ const App = () => {
               <div className="space-y-3">
                 <ParameterRow 
                   icon={<Thermometer className="w-4 h-4 text-orange-400"/>} 
-                  label="Incline Slope" 
-                  value={`${selectedPoint.parameters.slope_deg.toFixed(1)}°`} 
+                  label="Slope" 
+                  value={`${selectedPoint.parameters.slope_epsg4326?.toFixed(1)}°`} 
                 />
                 <ParameterRow 
                   icon={<Activity className="w-4 h-4 text-emerald-400"/>} 
-                  label="NDVI Index" 
-                  value={selectedPoint.parameters.ndvi_score.toFixed(3)} 
+                  label="NDVI" 
+                  value={selectedPoint.parameters.ndvi_epsg4326?.toFixed(4)} 
                 />
                 <ParameterRow 
                   icon={<AlertTriangle className="w-4 h-4 text-blue-400"/>} 
-                  label="Dist to Road" 
-                  value={`${selectedPoint.parameters.dist_to_road_m.toFixed(0)}m`} 
+                  label="Elevation" 
+                  value={`${selectedPoint.parameters.dem_epsg4326?.toFixed(0)}m`} 
+                />
+                <ParameterRow 
+                  icon={<CloudRain className="w-4 h-4 text-cyan-400"/>} 
+                  label="Rainfall" 
+                  value={`${selectedPoint.parameters.rainfall_epsg4326?.toFixed(0)}mm`} 
                 />
                 <ParameterRow 
                   icon={<Info className="w-4 h-4 text-slate-400"/>} 
                   label="Matched Cell" 
-                  value={`${selectedPoint.matched_coord.lat.toFixed(3)}, ${selectedPoint.matched_coord.lon.toFixed(3)}`} 
+                  value={`${selectedPoint.matched_coord.lat.toFixed(4)}, ${selectedPoint.matched_coord.lon.toFixed(4)}`} 
                 />
               </div>
 
@@ -262,7 +267,7 @@ const App = () => {
               <span>Sync Status</span>
               <span className="flex items-center gap-1">
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                Live Synthetic Stream
+                Live Production Stream
               </span>
            </div>
         </div>
