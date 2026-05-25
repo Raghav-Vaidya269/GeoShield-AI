@@ -96,7 +96,7 @@ export default function HomePage({ onOpenMap }) {
 
             <p className="mt-5 text-xs font-mono uppercase tracking-[0.38em] text-emerald-700/80">Sindhupalchok District · Nepal</p>
             <h1 className="mt-4 max-w-3xl text-5xl font-semibold tracking-tight text-slate-950 sm:text-6xl lg:text-7xl">
-              Predicting Landslides Before They Happen
+              Classifying Landslides Before They Happen
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
               GeoShield AI turns environmental signals into clear action, helping teams detect risk, plan safer travel,

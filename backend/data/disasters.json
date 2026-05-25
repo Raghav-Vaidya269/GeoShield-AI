@@ -12,5 +12,12 @@
         "lon": 85.88796177728562,
         "description": "User reported disaster",
         "timestamp": "2026-05-24T20:05:17.644259Z"
+    },
+    {
+        "id": "4c33db8c-ebf8-4601-bdda-d6636cd662d5",
+        "lat": 27.904178465998385,
+        "lon": 85.82220338392315,
+        "description": "User reported disaster",
+        "timestamp": "2026-05-25T01:08:21.777684Z"
     }
 ]
