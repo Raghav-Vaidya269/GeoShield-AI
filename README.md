@@ -144,8 +144,3 @@ Open the local Vite URL displayed in the terminal (usually `http://localhost:517
 - Submit pull requests with clear descriptions and related changes
 - Keep new additions documented and test local setup before merging
 
-## License
-
-No license file is included in this repository. Add a `LICENSE` file to specify the terms of use and contribution policy.
-
-> Notes: The frontend expects the backend at `http://localhost:5000`. Route planning depends on the public OSRM service and may require an active internet connection.
