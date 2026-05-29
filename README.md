@@ -102,14 +102,6 @@ Open the local Vite URL displayed in the terminal (usually `http://localhost:517
 - Open the route planner to compare safe travel options between hubs.
 - Report a disaster by clicking a map location and submitting a hazard alert.
 
-## Screenshots or Demo
-
-> Placeholder images — replace these with actual screenshots once available.
-
-![GeoShield Dashboard Placeholder](https://via.placeholder.com/1000x400?text=GeoShield+AI+Dashboard)
-
-![Route Planner Placeholder](https://via.placeholder.com/1000x400?text=Safe+Route+Planner)
-
 ## API / Backend Details
 
 ### Endpoints
